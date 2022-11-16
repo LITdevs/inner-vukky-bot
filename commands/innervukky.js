@@ -19,8 +19,8 @@ module.exports = {
 			.setDescription("Here's your inner Vukky!")
 			.setImage(innerVukky.url)
 			.addFields([{ name: "Name", value: nhm.translate(innerVukky.name)}])
-			.addFields([{ name: "Description", value: nhm.translate(innerVukky.description)}])
-			.addFields([{ name: "Creator", value: `${innerVukky.description ? innerVukky.creator : "Unknown"}`}])
+			.addFields([{ name: "Description", value: `${innerVukky.description ? nhm.translate(innerVukky.description) : "None :("}`}])
+			.addFields([{ name: "Creator", value: `${innerVukky.creator ? innerVukky.creator : "Unknown"}`}])
 			.setFooter({ text: 'Discover your inner Vukky with /innervukky', iconURL: 'https://vukkybox.com/resources/vukkyshaman.webp' });
 		await interaction.reply({ embeds: [vukkyEmbed], allowedMentions: {parse: []} });
 		if (innerVukky.audio) await interaction.followUp(`Looks like there is a bit of audio related to this one! ${innerVukky.audio}`);
